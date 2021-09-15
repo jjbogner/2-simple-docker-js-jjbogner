@@ -30,7 +30,7 @@
     </div>
   </nav>
 <body>
-<table class="table">
+<table id="taskTable" class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -149,9 +149,9 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   <script src="js/tablesort.min.js"></script>
-  //Tablesort plugin from https://github.com/tristen/tablesort
+
   <script>
-    new Tablesort(document.getElementById('TaskTable'));
+    new Tablesort(document.getElementById('taskTable'));
   </script>
 </body>
 </html>
