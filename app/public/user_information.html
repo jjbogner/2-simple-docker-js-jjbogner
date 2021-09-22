@@ -4,6 +4,7 @@
   <title>User Information</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link href="css/custom.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/vue@next"></script>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -30,12 +31,17 @@
     </div>
   </nav>
 <body>
+  <div id="someApp">
     <h1>User Information</h1>
-    <h3>Name:</h3><p>Mike Wazowski</p>
-    <h3>Country:</h3><p>USA</p>
-    <h3>Birthdate:</h3><p>10/15/01</p>
-    <h3>Age:</h3><p>18</p>
-    <h3>Email:</h3><p><a href="mailto:email@example.com">Send Email</a></p>
-    <h3>Profile Picture</h3><a href="images/profile-image.jpg" ><img src="images/thumbnail1.jpg"><a></a>
+    <h3>Name:</h3><p>{{ result.name.first }} {{ result.name.last }}</p>
+    <h3>Country:</h3><p>{{ result.location.country }}</p>
+    <h3>Birthdate:</h3><p>{{ prettyBirthday }}</p>
+    <h3>Age:</h3><p>{{ result.dob.age }}</p>
+    <h3>Email:</h3><p><a v-bind:href="'mailto:' + result.email">{{ result.email }}</p>
+    <h3>Profile Picture</h3><p><a v-bind:href= 'result.picture.large'><img class= 'profile' v-bind:src= 'result.picture.large' alt="lego"></a></p>
+  </div>
+
+    <script src="js/vue_assignment.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 </body>
 </html>
