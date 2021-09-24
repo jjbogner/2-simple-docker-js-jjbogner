@@ -31,15 +31,23 @@
     </div>
   </nav>
 <body>
-  <div id="someApp">
-    <h1>User Information</h1>
-    <h3>Name:</h3><p>{{ result.name.first }} {{ result.name.last }}</p>
-    <h3>Country:</h3><p>{{ result.location.country }}</p>
-    <h3>Birthdate:</h3><p>{{ prettyBirthday }}</p>
-    <h3>Age:</h3><p>{{ result.dob.age }}</p>
-    <h3>Email:</h3><p><a v-bind:href="'mailto:' + result.email">{{ result.email }}</p>
-    <h3>Profile Picture</h3><p><a v-bind:href= 'result.picture.large'><img class= 'profile' v-bind:src= 'result.picture.large' alt="lego"></a></p>
-  </div>
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col col-12" id="someApp">
+        <h3>User Information</h3>
+        <form v-on:submit.prevent="fetchUserData">
+          <button type="submit">Refresh</button>
+        </form>
+        <div v-if="result">
+          <p>{{ result.name.first }} {{ result.name.last }}</p>
+          <p>{{ result.location.country }}</p>
+          <p>{{ prettyBirthday }}</p>
+          <p>{{ result.dob.date }}</p>
+          <p><a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></p>
+          <p><img v-bind:src="result.picture.large"></p>
+        </div>
+      </div>
+    </div>
 
     <script src="js/vue_assignment.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
