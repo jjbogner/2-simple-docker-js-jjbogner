@@ -13,7 +13,7 @@ $arr = [
     "best" => "DS"
 ];
 
-$arr2 = [div 1,2,3,4,5,8]
+$arr2 = [1,2,3,4,5,8]
 
 if (true) {
     echo "\nTRUE\n"
@@ -24,13 +24,13 @@ while (true) {
     break;
 }
 
-# This is also a comment
-/* This is a 
-multi-line
-comment */
-
-foreach($i:$arr){
-    echo $i;
+echo "<ul>";
+foreach($arr as $key=>$val){
+    echo "<li>".$key ." is ".$val."</li>";
 }
+echo "</ul>";
 
-
+echo json_endcode(
+    $arr,
+    JSON_PRETTY_PRINT|JSON_THROW_ON_ERROR
+);
